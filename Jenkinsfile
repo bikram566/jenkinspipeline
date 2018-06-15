@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "scp -i /Users/sony/MYKEYS/no1key.pem **/target/*.war ec2-user@${params.tomcat-staging-server}:/var/lib/tomcat8/webapps"
+                        bat "cp -i /Users/sony/MYKEYS/no1key.pem **/target/*.war ec2-user@${params.tomcat-staging-server}:/var/lib/tomcat8/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat "scp -i /Users/sony/MYKEYS/no1key.pem **/target/*.war ec2-user@${params.tomcat-production-server}:/var/lib/tomcat8/webapps"
+                        bat "cp -i /Users/sony/MYKEYS/no1key.pem **/target/*.war ec2-user@${params.tomcat-production-server}:/var/lib/tomcat8/webapps"
                     }
                 }
             }
